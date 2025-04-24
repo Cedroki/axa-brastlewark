@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brastlewark</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Habitants de Brastlewark</h1>
+
+    <input type="text" id="search" placeholder="Rechercher un gnome..." />
+
+    <div style="margin: 20px 0;">
+      <label>Âge minimum :
+        <input type="number" id="minAge" placeholder="ex : 100" style="margin-right: 20px;" />
+      </label>
+
+      <label>Profession :
+        <input type="text" id="profession" placeholder="ex : Carpenter" />
+      </label>
+    </div>
+
+    <div id="gnomes-container"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
