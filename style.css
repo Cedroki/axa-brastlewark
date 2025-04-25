@@ -23,6 +23,22 @@ body {
     margin-bottom: 20px;
   }
   
+  .filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .filters input {
+    flex: 1;
+    min-width: 180px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+  }
+  
   #gnomes-container {
     display: flex;
     flex-wrap: wrap;
@@ -49,5 +65,72 @@ body {
     height: 150px;
     object-fit: cover;
     border-radius: 4px;
+  }
+  @media (max-width: 600px) {
+    body {
+      padding: 10px;
+    }
+  
+    h1 {
+      font-size: 20px;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+  
+    .filters {
+      flex-wrap: wrap;
+      flex-direction: row;
+      gap: 5px;
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+  
+    .filters input {
+      font-size: 14px;
+      padding: 6px;
+      flex: 1 1 45%;
+      min-width: 130px;
+    }
+  
+    #search {
+      font-size: 16px;
+      padding: 8px;
+      margin-bottom: 10px;
+    }
+  
+    #gnomes-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 8px;
+        padding: 0 4px;
+        box-sizing: border-box;
+      }
+      
+      .card {
+        width: 48%;
+        box-sizing: border-box;
+        font-size: 12px;
+        padding: 6px;
+        background: white;
+        border-radius: 6px;
+        box-shadow: 0 0 3px rgba(0,0,0,0.1);
+      }
+      
+  
+    .card img {
+      height: 100px;
+      object-fit: cover;
+      border-radius: 3px;
+    }
+  
+    .card h3 {
+      font-size: 14px;
+      margin: 6px 0;
+    }
+  
+    .card p {
+      margin: 3px 0;
+    }
   }
   
