@@ -19,7 +19,8 @@ fetch("data.json")
     container.innerHTML = "<p>Erreur pdt le chargement des données.</p>";
   });
 
-// Listen to all inputs
+
+  
 [searchInput, minAgeInput, professionInput, hairColorInput, minWeightInput, friendNamesInput].forEach(input => {
   input.addEventListener('input', applyFilters);
 });
@@ -28,6 +29,7 @@ function applyFilters() {
   const nameQuery = searchInput.value.toLowerCase();
   const ageQuery = parseFloat(minAgeInput.value);
   const professionQueries = professionInput.value.toLowerCase().split(',').map(p => p.trim()).filter(Boolean);
+  
   const hairQuery = hairColorInput.value.toLowerCase();
   const weightQuery = parseFloat(minWeightInput.value);
   const friendQueriesRaw = friendNamesInput.value.toLowerCase().split(',').map(f => f.trim()).filter(Boolean);
@@ -41,10 +43,9 @@ function applyFilters() {
     const hairMatch = hairQuery === '' || gnome.hair_color.toLowerCase().includes(hairQuery);
     const weightMatch = isNaN(weightQuery) || gnome.weight >= weightQuery;
 
-    // Special handling for friend search
     const friendsMatch = (() => {
-      if (friendQueriesRaw.length === 0) return true;
-      if (friendQueriesRaw.includes('none')) {
+    if (friendQueriesRaw.length === 0) return true;
+  if (friendQueriesRaw.includes('none')) {
         return gnome.friends.length === 0;
       }
       return friendQueriesRaw.every(friend =>
@@ -52,8 +53,12 @@ function applyFilters() {
       );
     })();
 
+
+
     return nameMatch && ageMatch && professionMatch && hairMatch && weightMatch && friendsMatch;
   });
+
+
 
   renderGnomes(filtered);
 }
@@ -64,7 +69,7 @@ function renderGnomes(data) {
     const card = document.createElement('div');
     card.className = 'card';
     card.innerHTML = `
-      <img src="${gnome.thumbnail}" alt="${gnome.name}" loading="lazy" />
+    <img src="${gnome.thumbnail}" alt="${gnome.name}" loading="lazy" />
       <h3>${gnome.name}</h3>
       <p><strong>Age:</strong> ${gnome.age}</p>
       <p><strong>Height:</strong> ${gnome.height.toFixed(2)} cm</p>
@@ -76,7 +81,7 @@ function renderGnomes(data) {
 
     card.addEventListener('click', () => {
       alert(
-        `Name: ${gnome.name}\n` +
+     `Name: ${gnome.name}\n` +
         `Age: ${gnome.age} years\n` +
         `Height: ${gnome.height.toFixed(2)} cm\n` +
         `Weight: ${gnome.weight.toFixed(2)} kg\n` +
@@ -86,6 +91,10 @@ function renderGnomes(data) {
       );
     });
 
+
+
     container.appendChild(card);
   });
+
+
 }
